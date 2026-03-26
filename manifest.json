@@ -1,0 +1,47 @@
+{
+   "action": {
+      "default_icon": "/images/icon-16.png",
+      "default_popup": "popup.html"
+   },
+   "background": {
+      "service_worker": "/js/background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "/css/dream100.css", "/css/onboarding.css" ],
+      "js": [ "/js/jquery.min.js", "/js/arrive.js", "/js/dream100.js", "/js/onboarding.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+   },
+   "declarative_net_request": {
+      "rule_resources": [ {
+         "enabled": true,
+         "id": "ruleset_1",
+         "path": "rules.json"
+      } ]
+   },
+   "description": "Superlio.ai – You’re One LinkedIn Post Away 🚀",
+   "externally_connectable": {
+      "matches": [ "https://app.superlio.ai/*", "https://dashboard.superlio.ai/*", "https://dashboarddev.superlio.ai/*" ]
+   },
+   "host_permissions": [ "http://*/", "https://*/" ],
+   "icons": {
+      "128": "/images/icon-128.png",
+      "16": "/images/icon-16.png",
+      "32": "/images/icon-32.png",
+      "48": "/images/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApUC5HSNXphHsczdeL9HX+cz1fL6WIj3hOLwb2FPkjRM9w3K913+8pVx+FR0mSx6PKTemU1cOvyt0EfBblMMbNJkUbifSl3es+q/95S12xv+T/ONdALGYHcGEkHaL/LJ5+eq8kgxETrZXxEPiGG+TpAhfZII+3gzQy0YT+aSt1tqoAMPxaykdGOeumApxigQZHCh50NmuUcIH8HRTkFQYghuPUyoDZm8GhF7mG19/U4ALjC6I0F2VPjDwFNFVjStOIXEYb84wPE0fO/PCDCQy3UsbmqIxtmva+AAtkXTOfJIknnYawkFwHL5L56JSWxmNsmTSfl5kQA9oF2uXA2ZjnwIDAQAB",
+   "manifest_version": 3,
+   "name": "Superlio.ai",
+   "options_page": "options.html",
+   "permissions": [ "tabs", "storage", "cookies", "scripting", "declarativeNetRequest", "declarativeNetRequestWithHostAccess", "webRequest" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.2.6",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "/js/*.js", "/css/*.css", "/images/icon-16.png", "/images/icon-20.png", "/images/icon-32.png", "/images/icon-48.png", "/images/logo.png", "/images/check-mark.gif", "/images/tick.png", "/images/cross.png", "/images/warning.png", "/images/play.png", "/images/pause.png", "/images/loading.gif", "/images/lock.png", "/images/unlock.png", "/images/lock.svg", "/images/unlock.svg" ]
+   } ]
+}

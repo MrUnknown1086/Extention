@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/options-style.css">
+  <link rel="stylesheet" href="/css/onboarding.css">
+  <meta charset="utf-8">
+  <title>Superlio Extension Settings</title>
+</head>
+
+<body>
+  <div class="content">
+    <h1>
+      <img src="/images/icon-48.png" title="Superlio" alt="Superlio">
+      <span id="options-title-heading">Engagement Personalisation</span>
+    </h1>
+
+    <div id="prompts_wrap">
+      <form action="" method="post" id="promots" data-form="promots">
+        <!-- Tabs Navigation -->
+        <div class="tabs-nav">
+          <button type="button" class="tab-btn active" data-tab="tab-personalisation">Personalisation</button>
+          <button type="button" class="tab-btn" data-tab="tab-creators">Creator Style</button>
+        </div>
+
+        <div class="tabs-content">
+          <!-- Tab 1: Personalisation -->
+          <div class="tab-pane active" id="tab-personalisation">
+            <!-- Section 1: Personality -->
+            <div class="section-block">
+              <div class="section-header">
+                <span class="section-title">My Personality</span>
+                <span class="section-desc">Describe yourself to help AI write authentically as you.</span>
+              </div>
+              <textarea id="personality" name="personality" maxlength="200" class="input_box"
+                placeholder="e.g. I'm a B2B copywriter helping founders grow on LinkedIn"></textarea>
+              <span class="char-hint">Max 200 characters</span>
+            </div>
+
+            <!-- Comment Length -->
+            <div class="section-block">
+              <label style="display:block; margin-bottom: 5px; font-weight:600;">Comment Length Suggestion</label>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <input type="number" id="comment_lenght" name="comment_lenght" class="input_box" style="width:100px;"
+                  min="1" max="100" placeholder="Words">
+                <span class="section-desc">words (approximate)</span>
+              </div>
+            </div>
+
+            <div class="section-block" style="border-bottom: none; margin-bottom: 10px;">
+              <div class="prompts-header-row">
+                <span>Name</span>
+                <span>Instruction</span>
+              </div>
+              <div id="prompts">
+                <!-- Custom prompt inputs injected by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Comment Like a Creator -->
+          <div class="tab-pane" id="tab-creators" style="display: none;">
+            <div class="section-block" id="creators_section" style="border-bottom: none; margin-bottom: 10px;">
+              <div class="section-header">
+                <span class="section-title">Comment Like a Creator</span>
+                <span class="section-desc">Add up to 6 LinkedIn creators to mimic their comment style.</span>
+              </div>
+              <div id="creator_slots">
+                <!-- Slots injected by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button_wrap">
+          <input type="submit" value="Save Settings" name="save" class="button primary aud_submit">
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Import Style Modal -->
+  <div id="import_modal_overlay" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Import Writing Style</h3>
+        <button type="button" class="modal-close" id="close_import_modal">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Enter a LinkedIn profile URL to analyze and import their writing style.</p>
+        <input type="text" id="modal_creator_url" class="input_box" placeholder="https://linkedin.com/in/username" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button cancel-btn" id="cancel_import_btn">Cancel</button>
+        <button type="button" class="button primary fetch-btn" id="confirm_import_btn">Import Style</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Comments Modal -->
+  <div id="view_comments_modal_overlay" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="view_comments_title">Creator Comments</h3>
+        <button type="button" class="modal-close" id="close_view_comments_modal">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="comments_list" class="comments-list">
+          <!-- Comments injected by JS -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button primary" id="dismiss_view_comments_btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/options.js"></script>
+<script src="/js/onboarding-options.js"></script>
+
+</html>
