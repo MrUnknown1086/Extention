@@ -1,0 +1,288 @@
+:root {
+    --primary-color: #614bfb;
+    --primary-hover: #8979FD;
+    --bg-light: #f8fafc;
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --border-glass: rgba(0, 0, 0, 0.05);
+    --text-main: #1e293b;
+    --text-secondary: #64748b;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Let the body flexibly size to its content to avoid edge cutoffs */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 400px;
+    /* Force a comfortable width */
+    max-width: 450px;
+    overflow: hidden;
+    /* Prevent edge scrollbar artifacts */
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background-image: radial-gradient(circle at 50% 0%, rgba(97, 75, 251, 0.08) 0%, transparent 70%);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.content {
+    padding: 20px;
+    width: 100%;
+}
+
+/* Hide the old empty h1 */
+.content h1 {
+    display: none;
+}
+
+/* Glassmorphic Container - Light Mode */
+.white_box {
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    /* Crucial for absolute positioning inside */
+}
+
+.white_box:last-of-type {
+    margin-bottom: 0;
+}
+
+.white_box:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(97, 75, 251, 0.2);
+}
+
+/* Brand Logo inside the top card */
+.brand-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 24px;
+    width: auto;
+}
+
+/* Header Area: Avatar & Info */
+.settting_top_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 40px;
+    /* Make room for the logo above it */
+}
+
+.student_picture {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-right: 16px;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary-color), #bc4bfb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student_picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bg-light);
+}
+
+.student_info_wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.student_name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(120, 120, 120, 0.1);
+    transition: all 0.2s ease;
+}
+
+.logout:hover {
+    color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+.setting_bottom_wrap {
+    width: 100%;
+}
+
+.setting_bottom_wrap ul {
+    list-style: none;
+}
+
+/* Aligning the labels and values rigidly */
+.setting_bottom_wrap ul li {
+    display: flex;
+    align-items: baseline;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+.profile_lable {
+    /* Fixed width to ensure perfect vertical alignment of values */
+    width: 70px;
+    flex-shrink: 0;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.profile_text {
+    flex: 1;
+    color: var(--text-main);
+    word-break: break-all;
+    font-weight: 500;
+}
+
+/* Plan & Expiry Area */
+.credit_meter_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.credit_meter_wrap h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.plan_name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.plan_expiry {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    color: var(--text-secondary);
+}
+
+.ex_date {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Primary Button */
+.btn_wrap {
+    text-align: center;
+    margin-top: -8px;
+}
+
+.button.primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), #4731c6);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 28px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(97, 75, 251, 0.4);
+    border: none;
+}
+
+.button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(97, 75, 251, 0.6);
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+}
+
+/* Loaders & Messages */
+.dreamai-loader {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dreamai-loader::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(97, 75, 251, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.dreamai_message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background: #ffffff;
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 99999;
+    box-shadow: var(--shadow-soft);
+}

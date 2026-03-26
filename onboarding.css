@@ -1,0 +1,199 @@
+/* superlio-ext-dev 0.2.4/css/onboarding.css */
+
+.superlio-tour-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999998;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+}
+
+.superlio-tour-spotlight {
+    position: fixed;
+    z-index: 9999999;
+    border-radius: 8px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.superlio-tour-tooltip {
+    position: fixed;
+    z-index: 10000000;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1f2937;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.superlio-tour-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tooltip Arrow */
+.superlio-tour-tooltip::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+/* Arrow Directions */
+.superlio-tour-tooltip[data-pos="right"]::after {
+    top: 20px;
+    left: -8px;
+    border-width: 8px 8px 8px 0;
+    border-color: transparent #ffffff transparent transparent;
+}
+
+.superlio-tour-tooltip[data-pos="left"]::after {
+    top: 20px;
+    right: -8px;
+    border-width: 8px 0 8px 8px;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+.superlio-tour-tooltip[data-pos="top"]::after {
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0 8px;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.superlio-tour-tooltip[data-pos="bottom"]::after {
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+.superlio-tour-tooltip[data-pos="center"]::after {
+    display: none;
+}
+
+/* Tooltip Content */
+.tour-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #111827;
+}
+
+.tour-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+    color: #4b5563;
+}
+
+/* Navigation Bar */
+.tour-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 12px;
+    gap: 6px;
+}
+
+.tour-skip {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 500;
+}
+
+.tour-skip:hover {
+    color: #374151;
+    text-decoration: underline;
+}
+
+/* Back Button */
+.tour-back {
+    background: none;
+    border: none;
+    color: #614bfb;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 500;
+}
+
+.tour-back:hover {
+    color: #4f3ce0;
+    text-decoration: underline;
+}
+
+.tour-dots {
+    display: flex;
+    gap: 4px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.tour-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d1d5db;
+}
+
+.tour-dot.active {
+    background: #614bfb;
+}
+
+.tour-next {
+    background: #614bfb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.tour-next:hover {
+    background: #4f3ce0;
+}
+
+/* Centered welcome/done card overrides */
+.superlio-tour-tooltip.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 320px;
+    text-align: center;
+}
+
+.superlio-tour-tooltip.centered.visible {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.superlio-tour-tooltip.centered .tour-nav {
+    justify-content: center;
+    gap: 20px;
+}
+
+.superlio-tour-tooltip.centered .tour-dots {
+    display: none;
+}
